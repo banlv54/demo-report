@@ -1,0 +1,57 @@
+<div class="sortable-ul">
+  <% 2.times do |i| %>
+    <ul>
+      <span>UL <%= i %></span>
+      <div class="sortable-li">
+        <% 3.times do |j| %>
+          <li class="ui-state-default">
+            </span>Item <%= "#{i}-#{j}" %>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  <% end %>
+
+  <% (2..10).to_a.each do |i| %>
+    <ul class="sortable-li hide">
+      <span>UL <%= i %></span>
+      <div class="sortable-li">
+        <% 2.times do |j| %>
+          <li class="ui-state-default">
+            </span>Item <%= "#{i}-#{j}" %>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  <% end %>
+</div>
+
+<style>
+  .hide li{display: none;}
+  .sortable-li {
+    border: 2px solid red;
+    width: 542px;
+    min-height: 50px;
+    list-style-type: none;
+    display: block;
+    margin: 0;
+    padding: 5px 0 0 0;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .sortable-li li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 120px;
+  }
+</style>
+<script>
+  $(function() {
+    $(".sortable-ul").sortable();
+
+    $(".sortable-li").sortable({
+      connectWith: ".sortable-li"
+    })
+  });
+</script>

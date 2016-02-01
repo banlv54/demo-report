@@ -1,0 +1,24 @@
+<table style="border: 1px solid blue">
+  <tr>
+    <th style="border: 1px solid blue; padding: 5px"><h2 class="clone1">Click me 1</h2></th>
+    <th style="border: 1px solid blue; padding: 5px"><h2 class="clone2">Click me 2</h2></th>
+    <th style="border: 1px solid blue; padding: 5px"><h2 class="clone3">Click me 3</h2></th>
+  </tr>
+</table>
+
+
+
+<script>
+  $(function() {
+    $(".clone1").click(function(){
+      $(this).clone().insertAfter($(this));
+    });
+    $(document).on("click", ".clone2", function(){
+      $(this).clone().insertAfter($(this));
+    });
+    $(document).off("click", ".clone3");
+    $(document).on("click", ".clone3", function(){
+      $(this).clone().insertAfter($(this));
+    });
+  });
+</script>
